@@ -111,12 +111,12 @@ const ORIGINAL_SCHL_COUNT = BASE_SCHL_COUNT + EXTRA_SCHL_COUNT;
 const SOFT_EXTRA_SCHL_COUNT = 22;
 const SCHL_COUNT        = ORIGINAL_SCHL_COUNT + SOFT_EXTRA_SCHL_COUNT;
 const SCHLC_TINT        = [98,100,114];
-const SCHLC_ALPHA       = 0.23;  // sehr transparent
+const SCHLC_ALPHA       = 0.225;  // sehr transparent
 const SCHLC_FEATHER     = 5.6;
 const SCHLC_LEN_MIN     = 76 * SCALE;
 const SCHLC_LEN_MAX     = 300 * SCALE;
-const SCHLC_THICK_MIN   = 0.0058;
-const SCHLC_THICK_MAX   = 0.0148;
+const SCHLC_THICK_MIN   = 0.0046;
+const SCHLC_THICK_MAX   = 0.0116;
 const SCHLC_SPEED_SCALE = 0.44;
 const SCHLC_BLUR_PX     = FAST_EDIT_MODE ? 12 : 22;
 const NORMAL_SCHLIEREN_NUMBERS = new Set([2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35]);
@@ -128,12 +128,12 @@ function isSoftSchliereNumber(n) {
 /* Hellere Schlieren */
 const BRIGHT_SCHL_COUNT = 0;
 const BRIGHT_SCHLC_TINT = [100,102,116];
-const BRIGHT_SCHLC_ALPHA = 0.21;  // gleich transparent wie Grundschlieren
+const BRIGHT_SCHLC_ALPHA = 0.205;  // gleich transparent wie Grundschlieren
 
 /* Gelartige Schlieren – wie weiße Flecken, aber transparenter & gelartiger */
 const GEL_SCHL_COUNT = 0;
 const GEL_SCHLC_TINT = [104,108,122];
-const GEL_SCHLC_ALPHA = 0.19;  // gleich transparent wie Grundschlieren
+const GEL_SCHLC_ALPHA = 0.185;  // gleich transparent wie Grundschlieren
 const GEL_SCHLC_FEATHER = 1.0;
 const GEL_SCHLC_THICK_MIN = SCHLC_THICK_MIN;
 const GEL_SCHLC_THICK_MAX = SCHLC_THICK_MIN;
@@ -3313,7 +3313,7 @@ const ELEMENT_ALPHA = 1.42;
 const NON_HF_ELEMENT_ALPHA = 2.78;
 
 function elementVisibilityFactor(label) {
-  if (label === 'Nuclei-Gruppe') return 0.96;
+  if (label === 'Nuclei-Gruppe') return 0.46;
   if (label === 'Dreieck') return 6.80;
   return NON_HF_ELEMENT_ALPHA;
 }
@@ -7119,7 +7119,7 @@ function draw() {
       if (compareLabel === 'Dreieck') {
         drawingContext.save();
         drawingContext.globalAlpha = 1;
-        drawingContext.filter = 'contrast(1.62) brightness(1.24)';
+        drawingContext.filter = 'blur(0.7px) contrast(1.56) brightness(1.21)';
         drawStaticRoundTestReplica('', sp.x + ox, sp.y + oy, r * 0.94);
         drawStaticRoundTestReplica('', sp.x + ox, sp.y + oy, r * 0.94);
         drawStaticRoundTestReplica('', sp.x + ox, sp.y + oy, r * 0.94);
@@ -7229,7 +7229,7 @@ function draw() {
     floater.pos.set(hfBaseX + hfMotionX, hf1BaseY + hfMotionY);
     push();
     drawingContext.save();
-    drawingContext.globalAlpha *= ELEMENT_ALPHA * 1.95;
+    drawingContext.globalAlpha *= ELEMENT_ALPHA * 1.62;
     drawingContext.filter = 'contrast(1.86) brightness(1.24)';
     translate(floater.pos.x, floater.pos.y);
     scale(0.80, 0.93);
