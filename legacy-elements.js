@@ -56,7 +56,7 @@ const FLOATER_EASE       = 0.08;
 
 /* Fleck als Mini-Superfleck (lokal am Floater) – RESET auf Referenz */
 const FLECK_SUPER_SIZE      = 44;
-const FLECK_SUPER_TINT      = [10,11,15];           // dunklerer HF-Fleck
+const FLECK_SUPER_TINT      = [18,19,24];           // dunklerer HF-Fleck
 const FLECK_SUPER_ALPHA     = 0.54;
 const FLECK_SUPER_FEATHER   = 1.05;
 const FLECK_SUPER_DRAW_W    = 60 * SCALE * 0.9 * 0.9 * 0.9 * 0.9 * 0.9 * 0.82 * 1.06; // etwas größer
@@ -3313,8 +3313,8 @@ const ELEMENT_ALPHA = 1.42;
 const NON_HF_ELEMENT_ALPHA = 2.78;
 
 function elementVisibilityFactor(label) {
-  if (label === 'Nuclei-Gruppe') return 0.46;
-  if (label === 'Dreieck') return 6.80;
+  if (label === 'Nuclei-Gruppe') return 0.38;
+  if (label === 'Dreieck') return 5.70;
   return NON_HF_ELEMENT_ALPHA;
 }
 
@@ -6856,7 +6856,7 @@ function draw() {
   // Kern weich angeglichen an Corona: größer, diffuser, geringerer Alpha
   // → keine harte Trennung mehr zwischen heller Corona und dunklem Kern
   {
-    drawHFStyleCloudFleck(biggerCloud, 1.22, 1, 2.85);
+    drawHFStyleCloudFleck(biggerCloud, 1.22, 1, 2.45);
     drawCloudLabel('F1', biggerCloud);
     if (upperLeftGreyCloud) {
       const f2Follow = createVector(
@@ -7118,7 +7118,7 @@ function draw() {
     if (compareVariantVisible(compareLabel, 'slime')) {
       if (compareLabel === 'Dreieck') {
         drawingContext.save();
-        drawingContext.globalAlpha = 1;
+        drawingContext.globalAlpha = 0.78;
         drawingContext.filter = 'blur(1.05px) contrast(1.52) brightness(1.19)';
         drawStaticRoundTestReplica('', sp.x + ox, sp.y + oy, r * 0.94);
         drawStaticRoundTestReplica('', sp.x + ox, sp.y + oy, r * 0.94);

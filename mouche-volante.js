@@ -4024,26 +4024,26 @@ function drawRoundStyleSemReplica(label, x, y, r, aspect = 1.0, angleDeg = 0) {
     const rh = c[3] * r;
     const a = c[4];
     ctx.filter = 'blur(5px)';
-    ctx.fillStyle = 'rgba(245,252,255,0.14)';
+    ctx.fillStyle = 'rgba(245,252,255,0.20)';
     ctx.beginPath();
     ctx.ellipse(px, py, rw * 1.08, rh * 1.08, a, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.filter = 'blur(0.9px)';
-    ctx.strokeStyle = 'rgba(78,86,96,0.30)';
+    ctx.strokeStyle = 'rgba(78,86,96,0.38)';
     ctx.lineWidth = Math.max(0.32, r * 0.010);
     ctx.beginPath();
     ctx.ellipse(px, py, rw, rh, a, 0, Math.PI * 2);
     ctx.stroke();
 
-    ctx.strokeStyle = 'rgba(245,252,255,0.24)';
+    ctx.strokeStyle = 'rgba(245,252,255,0.32)';
     ctx.lineWidth = Math.max(0.25, r * 0.007);
     ctx.beginPath();
     ctx.ellipse(px, py, rw * 0.90, rh * 0.90, a, 0, Math.PI * 2);
     ctx.stroke();
 
     ctx.filter = 'blur(5.5px)';
-    ctx.fillStyle = i < 3 ? 'rgba(58,64,74,0.22)' : 'rgba(70,76,86,0.15)';
+    ctx.fillStyle = i < 3 ? 'rgba(58,64,74,0.28)' : 'rgba(70,76,86,0.20)';
     ctx.beginPath();
     ctx.ellipse(px + rw * 0.08, py + rh * 0.03, rw * 0.28, rh * 0.28, a, 0, Math.PI * 2);
     ctx.fill();
@@ -6733,12 +6733,8 @@ function draw() {
     drawHFStyleBlobReplica('', rh.x, rh.y, NUCLEUS_DROP_BASE_SIZE * 0.74 * 0.8, 1);
     drawingContext.restore();
     drawingContext.save();
-    drawingContext.globalAlpha *= ELEMENT_ALPHA * 0.96;
-    drawRoundStyleSemReplica('', rsem.x, rsem.y, NUCLEUS_DROP_BASE_SIZE * 0.74 * 0.8 * 2.028 * 0.8 * 0.85, 0.84, 28);
-    drawingContext.restore();
-    drawingContext.save();
-    drawingContext.globalAlpha *= ELEMENT_ALPHA;
-    drawHaloSemReplica(rsem.x + NUCLEUS_DROP_BASE_SIZE * 1.5, rsem.y, NUCLEUS_DROP_BASE_SIZE * 0.74 * 0.8 * 2.028 * 0.8 * 0.85, 28);
+    drawingContext.globalAlpha *= ELEMENT_ALPHA * 1.18;
+    drawRoundStyleSemReplica('', rsem.x, rsem.y, NUCLEUS_DROP_BASE_SIZE * 0.74 * 0.8 * 2.028 * 0.8 * 0.92, 0.84, 28);
     drawingContext.restore();
     drawingContext.filter = 'none';
     drawingContext.filter = 'none';

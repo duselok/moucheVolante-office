@@ -17,6 +17,8 @@ let frameIndex = 0;
 let motionTotal = { x: 0, y: 0 };
 const SCHLIERE_SPRITE_REFRESH_FRAMES = 4;
 const SCHLIEREN_ALPHA_MUL = 1.26;
+const GREY_SCHLIEREN_ALPHA_MUL = 1.10;
+const LIGHT_SCHLIEREN_ALPHA_MUL = 1.22;
 const SCHLIEREN_THICKNESS_MUL = 0.86;
 
 const SCHLIEREN = [
@@ -279,7 +281,7 @@ function drawSchliere(item, index) {
   const x = item.x * window.innerWidth;
   const y = item.y * window.innerHeight;
   const hasAttachedFleck = !item.light && index % 3 !== 2;
-  const alpha = item.alpha * item.visibility * SCHLIEREN_ALPHA_MUL;
+  const alpha = item.alpha * item.visibility * SCHLIEREN_ALPHA_MUL * (item.light ? LIGHT_SCHLIEREN_ALPHA_MUL : GREY_SCHLIEREN_ALPHA_MUL);
   const offsets = item.edge
     ? [[0, 0], [-window.innerWidth, 0], [window.innerWidth, 0], [0, -window.innerHeight], [0, window.innerHeight]]
     : [[0, 0]];
